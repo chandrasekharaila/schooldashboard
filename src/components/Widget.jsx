@@ -1,23 +1,35 @@
 import "./Widget.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { IoClose } from "react-icons/io5";
+import { WidgetContext } from "../WidgetsContext";
 
-const Widget = ({ widgetNumber }) => {
+const Widget = ({ widgetNumber,categoryID }) => {
   const [widgetAdded, setwidgetAdded] = useState(false);
   const [show, setshow] = useState(false);
   const [widgetData, setwidgetdata] = useState("");
+  const {addWidegt, removeWidget} = useContext(WidgetContext)
+
   const handleClose = () => {
     setwidgetAdded(false);
     setshow(false);
     setwidgetdata("");
   };
+
   const handleShow = () => setshow(true);
+
   const handlesubmit = () => {
+    addWidegt(categoryID,widgetData) //adding to context
     setwidgetAdded(true);
     setshow(false);
   };
+
+  const handleremove = () => {
+    removeWidget(categoryID, widgetData);
+    handleClose();
+  }
+
   return (
     <>
       <div className="widgetContainer">
@@ -28,7 +40,7 @@ const Widget = ({ widgetNumber }) => {
         ) : (
           <div className="realwidget">
             <div className="widgetheader">
-              <button className="btn btn-danger" onClick={handleClose}>
+              <button className="btn btn-danger" onClick={handleremove}>
                 <IoClose></IoClose>
               </button>
             </div>

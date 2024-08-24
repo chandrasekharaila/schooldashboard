@@ -1,12 +1,14 @@
 import "./Body.css";
 import Category from "./Category";
-import data from "../data.json";
+import { useContext } from "react";
+import { WidgetContext } from "../WidgetsContext";
 const Body = () => {
+  const { categories } = useContext(WidgetContext);
   return (
     <>
       <div className="bodyContainer">
-        {data.map((clas) => {
-          return <Category classData={clas} />;
+        {categories.map((clas) => {
+          return <Category key={clas.id} classData={clas} />;
         })}
       </div>
     </>
