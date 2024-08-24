@@ -1,0 +1,12 @@
+.categoryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 1px dotted white;
+    margin: 1.5rem;
+    overflow: auto;
+    padding: 2rem;
+    border-radius: 10px;
+    
+}

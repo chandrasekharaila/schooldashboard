@@ -1,0 +1,19 @@
+.header {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 1rem;
+    background-color: #244855;
+    color: white;
+}
+
+.search-widget {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.logo {
+    font-weight: bold;
+    border-left: 1px solid white;
+    padding: 5px;
+}
